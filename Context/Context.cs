@@ -11,6 +11,8 @@ namespace empresa_x.Context
     public class Context : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        //public DbSet<Sale> Sales { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=empresaX;User Id=postgres;Password=admin");

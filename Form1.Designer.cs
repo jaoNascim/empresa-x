@@ -54,8 +54,8 @@
             UpdateCustomerId = new System.Windows.Forms.TextBox();
             label9 = new System.Windows.Forms.Label();
             tabPage5 = new System.Windows.Forms.TabPage();
+            DeleteCustomerIdCB = new System.Windows.Forms.ComboBox();
             DeleteCustomerButton = new System.Windows.Forms.Button();
-            DeleteCustomerId = new System.Windows.Forms.TextBox();
             label11 = new System.Windows.Forms.Label();
             CustomerListView = new System.Windows.Forms.ListView();
             Id = new System.Windows.Forms.ColumnHeader();
@@ -65,39 +65,40 @@
             Email = new System.Windows.Forms.ColumnHeader();
             label1 = new System.Windows.Forms.Label();
             tabPage2 = new System.Windows.Forms.TabPage();
+            ProductListView = new System.Windows.Forms.ListView();
+            ProductId = new System.Windows.Forms.ColumnHeader();
+            ProductName = new System.Windows.Forms.ColumnHeader();
+            ProductDesc = new System.Windows.Forms.ColumnHeader();
+            ProductPrice = new System.Windows.Forms.ColumnHeader();
+            ProductQty = new System.Windows.Forms.ColumnHeader();
             tabControl3 = new System.Windows.Forms.TabControl();
             tabPage6 = new System.Windows.Forms.TabPage();
-            button1 = new System.Windows.Forms.Button();
-            textBox1 = new System.Windows.Forms.TextBox();
+            CreateProductButton = new System.Windows.Forms.Button();
+            CreateProductQuantity = new System.Windows.Forms.TextBox();
             label12 = new System.Windows.Forms.Label();
-            textBox2 = new System.Windows.Forms.TextBox();
+            CreateProductPrice = new System.Windows.Forms.TextBox();
             label13 = new System.Windows.Forms.Label();
-            textBox3 = new System.Windows.Forms.TextBox();
+            CreateProductDescription = new System.Windows.Forms.TextBox();
             label14 = new System.Windows.Forms.Label();
-            textBox4 = new System.Windows.Forms.TextBox();
+            CreateProductName = new System.Windows.Forms.TextBox();
             label15 = new System.Windows.Forms.Label();
             tabPage7 = new System.Windows.Forms.TabPage();
-            textBox5 = new System.Windows.Forms.TextBox();
+            UpdateProductQuantity = new System.Windows.Forms.TextBox();
             label16 = new System.Windows.Forms.Label();
-            button2 = new System.Windows.Forms.Button();
-            textBox6 = new System.Windows.Forms.TextBox();
+            UpdateProductButton = new System.Windows.Forms.Button();
+            UpdateProductPrice = new System.Windows.Forms.TextBox();
             label17 = new System.Windows.Forms.Label();
-            textBox7 = new System.Windows.Forms.TextBox();
+            UpdateProductDescription = new System.Windows.Forms.TextBox();
             label18 = new System.Windows.Forms.Label();
-            textBox8 = new System.Windows.Forms.TextBox();
+            UpdateProductName = new System.Windows.Forms.TextBox();
             label19 = new System.Windows.Forms.Label();
-            textBox9 = new System.Windows.Forms.TextBox();
+            UpdateProductId = new System.Windows.Forms.TextBox();
             label20 = new System.Windows.Forms.Label();
             tabPage8 = new System.Windows.Forms.TabPage();
-            button3 = new System.Windows.Forms.Button();
-            textBox10 = new System.Windows.Forms.TextBox();
+            DeleteProductIdCB = new System.Windows.Forms.ComboBox();
+            DeleteProductButton = new System.Windows.Forms.Button();
+            DeleteProductId = new System.Windows.Forms.TextBox();
             label21 = new System.Windows.Forms.Label();
-            listView1 = new System.Windows.Forms.ListView();
-            columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            columnHeader5 = new System.Windows.Forms.ColumnHeader();
             label22 = new System.Windows.Forms.Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -298,9 +299,9 @@
             label6.AutoSize = true;
             label6.Location = new System.Drawing.Point(4, 167);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(41, 15);
+            label6.Size = new System.Drawing.Size(44, 15);
             label6.TabIndex = 15;
-            label6.Text = "Phone";
+            label6.Text = "Phone:";
             // 
             // UpdateCustomerAddress
             // 
@@ -352,8 +353,8 @@
             // 
             // tabPage5
             // 
+            tabPage5.Controls.Add(DeleteCustomerIdCB);
             tabPage5.Controls.Add(DeleteCustomerButton);
-            tabPage5.Controls.Add(DeleteCustomerId);
             tabPage5.Controls.Add(label11);
             tabPage5.Location = new System.Drawing.Point(4, 24);
             tabPage5.Name = "tabPage5";
@@ -362,6 +363,14 @@
             tabPage5.TabIndex = 2;
             tabPage5.Text = "Delete";
             tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // DeleteCustomerIdCB
+            // 
+            DeleteCustomerIdCB.FormattingEnabled = true;
+            DeleteCustomerIdCB.Location = new System.Drawing.Point(6, 23);
+            DeleteCustomerIdCB.Name = "DeleteCustomerIdCB";
+            DeleteCustomerIdCB.Size = new System.Drawing.Size(524, 23);
+            DeleteCustomerIdCB.TabIndex = 21;
             // 
             // DeleteCustomerButton
             // 
@@ -372,13 +381,6 @@
             DeleteCustomerButton.Text = "DELETE";
             DeleteCustomerButton.UseVisualStyleBackColor = true;
             DeleteCustomerButton.Click += DeleteCustomerButton_Click;
-            // 
-            // DeleteCustomerId
-            // 
-            DeleteCustomerId.Location = new System.Drawing.Point(6, 23);
-            DeleteCustomerId.Name = "DeleteCustomerId";
-            DeleteCustomerId.Size = new System.Drawing.Size(524, 23);
-            DeleteCustomerId.TabIndex = 19;
             // 
             // label11
             // 
@@ -439,8 +441,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(ProductListView);
             tabPage2.Controls.Add(tabControl3);
-            tabPage2.Controls.Add(listView1);
             tabPage2.Controls.Add(label22);
             tabPage2.Location = new System.Drawing.Point(4, 24);
             tabPage2.Name = "tabPage2";
@@ -449,6 +451,39 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Product Actions";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // ProductListView
+            // 
+            ProductListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { ProductId, ProductName, ProductDesc, ProductPrice, ProductQty });
+            ProductListView.Location = new System.Drawing.Point(550, 6);
+            ProductListView.Name = "ProductListView";
+            ProductListView.Size = new System.Drawing.Size(609, 630);
+            ProductListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            ProductListView.TabIndex = 6;
+            ProductListView.UseCompatibleStateImageBehavior = false;
+            ProductListView.View = System.Windows.Forms.View.Details;
+            // 
+            // ProductId
+            // 
+            ProductId.Text = "Id";
+            // 
+            // ProductName
+            // 
+            ProductName.Text = "Name";
+            ProductName.Width = 100;
+            // 
+            // ProductDesc
+            // 
+            ProductDesc.Text = "Description";
+            ProductDesc.Width = 250;
+            // 
+            // ProductPrice
+            // 
+            ProductPrice.Text = "Price";
+            // 
+            // ProductQty
+            // 
+            ProductQty.Text = "Quantity";
             // 
             // tabControl3
             // 
@@ -463,14 +498,14 @@
             // 
             // tabPage6
             // 
-            tabPage6.Controls.Add(button1);
-            tabPage6.Controls.Add(textBox1);
+            tabPage6.Controls.Add(CreateProductButton);
+            tabPage6.Controls.Add(CreateProductQuantity);
             tabPage6.Controls.Add(label12);
-            tabPage6.Controls.Add(textBox2);
+            tabPage6.Controls.Add(CreateProductPrice);
             tabPage6.Controls.Add(label13);
-            tabPage6.Controls.Add(textBox3);
+            tabPage6.Controls.Add(CreateProductDescription);
             tabPage6.Controls.Add(label14);
-            tabPage6.Controls.Add(textBox4);
+            tabPage6.Controls.Add(CreateProductName);
             tabPage6.Controls.Add(label15);
             tabPage6.Location = new System.Drawing.Point(4, 24);
             tabPage6.Name = "tabPage6";
@@ -480,69 +515,70 @@
             tabPage6.Text = "Create";
             tabPage6.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // CreateProductButton
             // 
-            button1.Location = new System.Drawing.Point(376, 284);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(154, 42);
-            button1.TabIndex = 8;
-            button1.Text = "CREATE";
-            button1.UseVisualStyleBackColor = true;
+            CreateProductButton.Location = new System.Drawing.Point(376, 284);
+            CreateProductButton.Name = "CreateProductButton";
+            CreateProductButton.Size = new System.Drawing.Size(154, 42);
+            CreateProductButton.TabIndex = 8;
+            CreateProductButton.Text = "CREATE";
+            CreateProductButton.UseVisualStyleBackColor = true;
+            CreateProductButton.Click += CreateProductButton_Click;
             // 
-            // textBox1
+            // CreateProductQuantity
             // 
-            textBox1.Location = new System.Drawing.Point(5, 183);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(524, 23);
-            textBox1.TabIndex = 7;
+            CreateProductQuantity.Location = new System.Drawing.Point(5, 183);
+            CreateProductQuantity.Name = "CreateProductQuantity";
+            CreateProductQuantity.Size = new System.Drawing.Size(524, 23);
+            CreateProductQuantity.TabIndex = 7;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Location = new System.Drawing.Point(6, 168);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(39, 15);
+            label12.Size = new System.Drawing.Size(56, 15);
             label12.TabIndex = 6;
-            label12.Text = "Email:";
+            label12.Text = "Quantity:";
             // 
-            // textBox2
+            // CreateProductPrice
             // 
-            textBox2.Location = new System.Drawing.Point(5, 129);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(524, 23);
-            textBox2.TabIndex = 5;
+            CreateProductPrice.Location = new System.Drawing.Point(5, 129);
+            CreateProductPrice.Name = "CreateProductPrice";
+            CreateProductPrice.Size = new System.Drawing.Size(524, 23);
+            CreateProductPrice.TabIndex = 5;
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Location = new System.Drawing.Point(6, 114);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(44, 15);
+            label13.Size = new System.Drawing.Size(36, 15);
             label13.TabIndex = 4;
-            label13.Text = "Phone:";
+            label13.Text = "Price:";
             // 
-            // textBox3
+            // CreateProductDescription
             // 
-            textBox3.Location = new System.Drawing.Point(5, 75);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new System.Drawing.Size(524, 23);
-            textBox3.TabIndex = 3;
+            CreateProductDescription.Location = new System.Drawing.Point(5, 75);
+            CreateProductDescription.Name = "CreateProductDescription";
+            CreateProductDescription.Size = new System.Drawing.Size(524, 23);
+            CreateProductDescription.TabIndex = 3;
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Location = new System.Drawing.Point(6, 60);
             label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(52, 15);
+            label14.Size = new System.Drawing.Size(70, 15);
             label14.TabIndex = 2;
-            label14.Text = "Address:";
+            label14.Text = "Description:";
             // 
-            // textBox4
+            // CreateProductName
             // 
-            textBox4.Location = new System.Drawing.Point(5, 21);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new System.Drawing.Size(524, 23);
-            textBox4.TabIndex = 1;
+            CreateProductName.Location = new System.Drawing.Point(5, 21);
+            CreateProductName.Name = "CreateProductName";
+            CreateProductName.Size = new System.Drawing.Size(524, 23);
+            CreateProductName.TabIndex = 1;
             // 
             // label15
             // 
@@ -555,16 +591,16 @@
             // 
             // tabPage7
             // 
-            tabPage7.Controls.Add(textBox5);
+            tabPage7.Controls.Add(UpdateProductQuantity);
             tabPage7.Controls.Add(label16);
-            tabPage7.Controls.Add(button2);
-            tabPage7.Controls.Add(textBox6);
+            tabPage7.Controls.Add(UpdateProductButton);
+            tabPage7.Controls.Add(UpdateProductPrice);
             tabPage7.Controls.Add(label17);
-            tabPage7.Controls.Add(textBox7);
+            tabPage7.Controls.Add(UpdateProductDescription);
             tabPage7.Controls.Add(label18);
-            tabPage7.Controls.Add(textBox8);
+            tabPage7.Controls.Add(UpdateProductName);
             tabPage7.Controls.Add(label19);
-            tabPage7.Controls.Add(textBox9);
+            tabPage7.Controls.Add(UpdateProductId);
             tabPage7.Controls.Add(label20);
             tabPage7.Location = new System.Drawing.Point(4, 24);
             tabPage7.Name = "tabPage7";
@@ -574,69 +610,70 @@
             tabPage7.Text = "Update";
             tabPage7.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // UpdateProductQuantity
             // 
-            textBox5.Location = new System.Drawing.Point(6, 239);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new System.Drawing.Size(524, 23);
-            textBox5.TabIndex = 19;
+            UpdateProductQuantity.Location = new System.Drawing.Point(6, 239);
+            UpdateProductQuantity.Name = "UpdateProductQuantity";
+            UpdateProductQuantity.Size = new System.Drawing.Size(524, 23);
+            UpdateProductQuantity.TabIndex = 19;
             // 
             // label16
             // 
             label16.AutoSize = true;
             label16.Location = new System.Drawing.Point(7, 224);
             label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(39, 15);
+            label16.Size = new System.Drawing.Size(56, 15);
             label16.TabIndex = 18;
-            label16.Text = "Email:";
+            label16.Text = "Quantity:";
             // 
-            // button2
+            // UpdateProductButton
             // 
-            button2.Location = new System.Drawing.Point(378, 286);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(154, 42);
-            button2.TabIndex = 17;
-            button2.Text = "UPDATE";
-            button2.UseVisualStyleBackColor = true;
+            UpdateProductButton.Location = new System.Drawing.Point(378, 286);
+            UpdateProductButton.Name = "UpdateProductButton";
+            UpdateProductButton.Size = new System.Drawing.Size(154, 42);
+            UpdateProductButton.TabIndex = 17;
+            UpdateProductButton.Text = "UPDATE";
+            UpdateProductButton.UseVisualStyleBackColor = true;
+            UpdateProductButton.Click += UpdateProductButton_Click;
             // 
-            // textBox6
+            // UpdateProductPrice
             // 
-            textBox6.Location = new System.Drawing.Point(6, 185);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new System.Drawing.Size(524, 23);
-            textBox6.TabIndex = 16;
+            UpdateProductPrice.Location = new System.Drawing.Point(6, 185);
+            UpdateProductPrice.Name = "UpdateProductPrice";
+            UpdateProductPrice.Size = new System.Drawing.Size(524, 23);
+            UpdateProductPrice.TabIndex = 16;
             // 
             // label17
             // 
             label17.AutoSize = true;
             label17.Location = new System.Drawing.Point(7, 170);
             label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(41, 15);
+            label17.Size = new System.Drawing.Size(36, 15);
             label17.TabIndex = 15;
-            label17.Text = "Phone";
+            label17.Text = "Price:";
             // 
-            // textBox7
+            // UpdateProductDescription
             // 
-            textBox7.Location = new System.Drawing.Point(6, 131);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new System.Drawing.Size(524, 23);
-            textBox7.TabIndex = 14;
+            UpdateProductDescription.Location = new System.Drawing.Point(6, 131);
+            UpdateProductDescription.Name = "UpdateProductDescription";
+            UpdateProductDescription.Size = new System.Drawing.Size(524, 23);
+            UpdateProductDescription.TabIndex = 14;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Location = new System.Drawing.Point(7, 116);
             label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(52, 15);
+            label18.Size = new System.Drawing.Size(70, 15);
             label18.TabIndex = 13;
-            label18.Text = "Address:";
+            label18.Text = "Description:";
             // 
-            // textBox8
+            // UpdateProductName
             // 
-            textBox8.Location = new System.Drawing.Point(6, 77);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new System.Drawing.Size(524, 23);
-            textBox8.TabIndex = 12;
+            UpdateProductName.Location = new System.Drawing.Point(6, 77);
+            UpdateProductName.Name = "UpdateProductName";
+            UpdateProductName.Size = new System.Drawing.Size(524, 23);
+            UpdateProductName.TabIndex = 12;
             // 
             // label19
             // 
@@ -647,12 +684,12 @@
             label19.TabIndex = 11;
             label19.Text = "Name:";
             // 
-            // textBox9
+            // UpdateProductId
             // 
-            textBox9.Location = new System.Drawing.Point(6, 23);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new System.Drawing.Size(524, 23);
-            textBox9.TabIndex = 10;
+            UpdateProductId.Location = new System.Drawing.Point(6, 23);
+            UpdateProductId.Name = "UpdateProductId";
+            UpdateProductId.Size = new System.Drawing.Size(524, 23);
+            UpdateProductId.TabIndex = 10;
             // 
             // label20
             // 
@@ -665,8 +702,9 @@
             // 
             // tabPage8
             // 
-            tabPage8.Controls.Add(button3);
-            tabPage8.Controls.Add(textBox10);
+            tabPage8.Controls.Add(DeleteProductIdCB);
+            tabPage8.Controls.Add(DeleteProductButton);
+            tabPage8.Controls.Add(DeleteProductId);
             tabPage8.Controls.Add(label21);
             tabPage8.Location = new System.Drawing.Point(4, 24);
             tabPage8.Name = "tabPage8";
@@ -676,21 +714,30 @@
             tabPage8.Text = "Delete";
             tabPage8.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // DeleteProductIdCB
             // 
-            button3.Location = new System.Drawing.Point(378, 286);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(154, 42);
-            button3.TabIndex = 20;
-            button3.Text = "DELETE";
-            button3.UseVisualStyleBackColor = true;
+            DeleteProductIdCB.FormattingEnabled = true;
+            DeleteProductIdCB.Location = new System.Drawing.Point(7, 52);
+            DeleteProductIdCB.Name = "DeleteProductIdCB";
+            DeleteProductIdCB.Size = new System.Drawing.Size(523, 23);
+            DeleteProductIdCB.TabIndex = 21;
             // 
-            // textBox10
+            // DeleteProductButton
             // 
-            textBox10.Location = new System.Drawing.Point(6, 23);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new System.Drawing.Size(524, 23);
-            textBox10.TabIndex = 19;
+            DeleteProductButton.Location = new System.Drawing.Point(378, 286);
+            DeleteProductButton.Name = "DeleteProductButton";
+            DeleteProductButton.Size = new System.Drawing.Size(154, 42);
+            DeleteProductButton.TabIndex = 20;
+            DeleteProductButton.Text = "DELETE";
+            DeleteProductButton.UseVisualStyleBackColor = true;
+            DeleteProductButton.Click += DeleteProductButton_Click;
+            // 
+            // DeleteProductId
+            // 
+            DeleteProductId.Location = new System.Drawing.Point(6, 23);
+            DeleteProductId.Name = "DeleteProductId";
+            DeleteProductId.Size = new System.Drawing.Size(524, 23);
+            DeleteProductId.TabIndex = 19;
             // 
             // label21
             // 
@@ -700,44 +747,6 @@
             label21.Size = new System.Drawing.Size(20, 15);
             label21.TabIndex = 18;
             label21.Text = "Id:";
-            // 
-            // listView1
-            // 
-            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
-            listView1.Location = new System.Drawing.Point(554, 4);
-            listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(606, 633);
-            listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            listView1.TabIndex = 4;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Id";
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.DisplayIndex = 4;
-            columnHeader2.Text = "Name";
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.DisplayIndex = 1;
-            columnHeader3.Text = "Address";
-            columnHeader3.Width = 250;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.DisplayIndex = 2;
-            columnHeader4.Text = "Phone";
-            columnHeader4.Width = 80;
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.DisplayIndex = 3;
-            columnHeader5.Text = "Email";
-            columnHeader5.Width = 100;
             // 
             // label22
             // 
@@ -816,42 +825,43 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button DeleteCustomerButton;
-        private System.Windows.Forms.TextBox DeleteCustomerId;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button CreateProductButton;
+        private System.Windows.Forms.TextBox CreateProductQuantity;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox CreateProductPrice;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox CreateProductDescription;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox CreateProductName;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox UpdateProductQuantity;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button UpdateProductButton;
+        private System.Windows.Forms.TextBox UpdateProductPrice;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox UpdateProductDescription;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox UpdateProductName;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox UpdateProductId;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button DeleteProductButton;
+        private System.Windows.Forms.TextBox DeleteProductId;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ListView ProductListView;
+        private System.Windows.Forms.ColumnHeader ProductId;
+        private System.Windows.Forms.ColumnHeader ProductName;
+        private System.Windows.Forms.ColumnHeader ProductDesc;
+        private System.Windows.Forms.ColumnHeader ProductPrice;
+        private System.Windows.Forms.ColumnHeader ProductQty;
+        private System.Windows.Forms.ComboBox DeleteProductIdCB;
+        private System.Windows.Forms.ComboBox DeleteCustomerIdCB;
     }
 }
 
