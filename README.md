@@ -4,11 +4,11 @@ A simple system for a company to manage its customers, products and sales.
 
 <h3>Technologys:</h3>
 
-<li>Visual Studio 2022</li>
+<li>Visual Studio (2022)</li>
 <li>pgAdmin4</li>
 <li>Windows Forms</li>
-<li>.Net Framework 8.0</li>
-<li>Npgsql 8.0.3</li>
+<li>.Net Framework (8.0)</li>
+<li>Npgsql (8.0.3)</li>
 
 <h3>Utilities:</h3>
 
