@@ -16,12 +16,14 @@ namespace empresa_x
     {
         public List<Customer> Customers { get; set; } = new List<Customer>();
         public List<Product> Products { get; set; } = new List<Product>();
+        public List<Sale> Sales { get; set; } = new List<Sale>();
 
         public Form1()
         {
             InitializeComponent();
             SelectCustomers();
             SelectProducts();
+            SelectSales();
         }
 
         private void SelectCustomers()
@@ -34,9 +36,13 @@ namespace empresa_x
                 CustomerListView.Items.Add(new ListViewItem(new String[] { item.id.ToString(), item.name, item.address, item.phone, item.email }));
             }
 
-            DeleteCustomerIdCB.DataSource = Customers;
-            DeleteCustomerIdCB.DisplayMember = "name";
-            DeleteCustomerIdCB.ValueMember = "id";
+            CreateSaleCustomer.DataSource = Customers;
+            CreateSaleCustomer.DisplayMember = "name";
+            CreateSaleCustomer.ValueMember = "id";
+
+            UpdateSaleCustomer.DataSource = Customers;
+            UpdateSaleCustomer.DisplayMember = "name";
+            UpdateSaleCustomer.ValueMember = "id";
         }
 
         private void SelectProducts()
@@ -49,9 +55,28 @@ namespace empresa_x
                 ProductListView.Items.Add(new ListViewItem(new String[] { item.id.ToString(), item.name, item.description, item.price.ToString(), item.qty.ToString() }));
             }
 
-            DeleteProductIdCB.DataSource = Products;
-            DeleteProductIdCB.DisplayMember = "name";
-            DeleteProductIdCB.ValueMember = "id";
+            CreateSaleProduct.DataSource = Products;
+            CreateSaleProduct.DisplayMember = "name";
+            CreateSaleProduct.ValueMember = "id";
+
+            UpdateSaleProduct.DataSource = Products;
+            UpdateSaleProduct.DisplayMember = "name";
+            UpdateSaleProduct.ValueMember = "id";
+        }
+
+        private void SelectSales()
+        {
+            var rep = new SaleServices();
+            Sales = rep.SelectAll().OrderBy(x => x.id).ToList();
+
+            foreach (var item in Sales)
+            {
+                SaleListView.Items.Add(new ListViewItem(new String[] { item.id.ToString(), item.customer_id.ToString(), item.product_id.ToString(), item.qty.ToString() }));
+            }
+
+            UpdateSaleId.DataSource = Sales;
+            UpdateSaleId.DisplayMember = "id";
+            UpdateSaleId.ValueMember = "id";
         }
 
         private void CreateCustomerButton_Click(object sender, EventArgs e)
@@ -108,10 +133,10 @@ namespace empresa_x
         {
             try
             {
-                var id = DeleteCustomerIdCB.SelectedValue;
+                var id = DeleteCustomerId.Text;
 
                 var rep = new CustomerServices();
-                rep.Delete(int.Parse(id.ToString()));
+                rep.Delete(int.Parse(id));
 
                 //CustomerStatus.Text = "Customer succesfully deleted!";
 
@@ -130,10 +155,10 @@ namespace empresa_x
             {
                 var name = CreateProductName.Text;
                 var desc = CreateProductDescription.Text;
-                var price = CreateProductPrice.Text;
-                var qty = CreateProductQuantity.Text;
+                var price = CreateProductPrice.Value;
+                var qty = CreateProductQuantity.Value;
 
-                var product = new Product(name, desc, int.Parse(price), int.Parse(qty));
+                var product = new Product(name, desc, price, qty);
                 Products.Add(product);
 
                 var rep = new ProductServices();
@@ -157,11 +182,11 @@ namespace empresa_x
                 var id = UpdateProductId.Text;
                 var name = UpdateProductName.Text;
                 var desc = UpdateProductDescription.Text;
-                var price = UpdateProductPrice.Text;
-                var qty = UpdateProductQuantity.Text;
+                var price = UpdateProductPrice.Value;
+                var qty = UpdateProductQuantity.Value;
 
                 var rep = new ProductServices();
-                rep.Update(int.Parse(id), name, desc, int.Parse(price), int.Parse(qty));
+                rep.Update(int.Parse(id), name, desc, price, qty);
 
                 //CustomerStatus.Text = "Customer succesfully updated!";
 
@@ -187,6 +212,85 @@ namespace empresa_x
 
                 ProductListView.Items.Clear();
                 SelectProducts();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void SaleCreateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var customer = CreateSaleCustomer.SelectedValue;
+                var product = CreateSaleProduct.SelectedValue;
+                var qty = CreateSaleQty.Value;
+
+                var selectedProduct = Products.Where(x => x.id == int.Parse(product.ToString())).FirstOrDefault();
+
+                if (qty <= selectedProduct.qty)
+                {
+                    var sale = new Sale(int.Parse(customer.ToString()), int.Parse(product.ToString()), qty);
+                    Sales.Add(sale);
+
+                    var rep = new SaleServices();
+                    rep.Create(sale);
+
+                    SaleListView.Items.Clear();
+                    SelectSales();
+
+                    var repP = new ProductServices();
+                    repP.Update(selectedProduct.id, selectedProduct.name, selectedProduct.description, selectedProduct.qty, (selectedProduct.qty - qty));
+
+                    ProductListView.Items.Clear();
+                    SelectProducts();
+                }
+                else
+                    MessageBox.Show("Quantity can't be greater than stock.");
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void UpdateSaleButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var id = UpdateSaleId.SelectedValue;
+                var cust = UpdateSaleCustomer.SelectedValue;
+                var prod = UpdateSaleProduct.SelectedValue;
+                var qty = UpdateSaleQuantity.Value;
+
+                var rep = new SaleServices();
+                rep.Update(int.Parse(id.ToString()), int.Parse(cust.ToString()), int.Parse(prod.ToString()), qty);
+
+                //CustomerStatus.Text = "Customer succesfully updated!";
+
+                SaleListView.Items.Clear();
+                SelectSales();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void DeleteSaleButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var id = DeleteSaleId.Text;
+
+                var rep = new SaleServices();
+                rep.Delete(int.Parse(id));
+
+                //CustomerStatus.Text = "Customer succesfully deleted!";
+
+                SaleListView.Items.Clear();
+                SelectSales();
             }
             catch (Exception er)
             {

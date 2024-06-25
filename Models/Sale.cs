@@ -8,26 +8,24 @@ using System.Threading.Tasks;
 
 namespace empresa_x.Models
 {
-    [Table("product")]
-    public class Product
+    [Table("sale")]
+    public class Sale
     {
         [Key]
         public int id { get; set; }
 
-        public string name { get; set; }
-        public string description { get; set; }
-        public decimal price { get; set; }
+        public int customer_id { get; set; }
+        public int product_id { get; set; }
         public decimal qty { get; set; }
 
-        public Product()
+        public Sale()
         {
         }
 
-        public Product(string name, string description, decimal price, decimal qty)
+        public Sale(int customer_id, int product_id, decimal qty)
         {
-            this.name = name;
-            this.description = description;
-            this.price = price;
+            this.customer_id = customer_id;
+            this.product_id = product_id;
             this.qty = qty;
         }
     }
