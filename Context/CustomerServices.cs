@@ -1,9 +1,6 @@
 ﻿using empresa_x.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace empresa_x.Context
 {
@@ -16,13 +13,20 @@ namespace empresa_x.Context
             return _context.Customers.ToList();
         }
 
-        public void Create(Customer customer)
+        public Customer SelectById(int id)
+        {
+            return _context.Customers.Where(x => x.id == id).FirstOrDefault();
+        }
+
+        public Customer Create(Customer customer)
         {
             _context.Customers.Add(customer);
             _context.SaveChanges();
+
+            return customer;
         }
 
-        public void Update(int id, string name, string address, string phone, string email)
+        public Customer Update(int id, string name, string address, string phone, string email)
         {
             var result = _context.Customers.SingleOrDefault(c => c.id == id);
 
@@ -35,6 +39,8 @@ namespace empresa_x.Context
 
                 _context.SaveChanges();
             }
+
+            return result;
         }
 
         public void Delete(int id)

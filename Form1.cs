@@ -264,13 +264,22 @@ namespace empresa_x
                 var prod = UpdateSaleProduct.SelectedValue;
                 var qty = UpdateSaleQuantity.Value;
 
-                var rep = new SaleServices();
-                rep.Update(int.Parse(id.ToString()), int.Parse(cust.ToString()), int.Parse(prod.ToString()), qty);
+                var selectedProduct = Products.Where(x => x.id == int.Parse(prod.ToString())).FirstOrDefault();
 
-                //CustomerStatus.Text = "Customer succesfully updated!";
+                if (qty <= selectedProduct.qty)
+                {
+                    var rep = new SaleServices();
+                    rep.Update(int.Parse(id.ToString()), int.Parse(cust.ToString()), int.Parse(prod.ToString()), qty);
 
-                SaleListView.Items.Clear();
-                SelectSales();
+                    SaleListView.Items.Clear();
+                    SelectSales();
+
+                    var repP = new ProductServices();
+                    repP.Update(selectedProduct.id, selectedProduct.name, selectedProduct.description, selectedProduct.qty, (selectedProduct.qty - qty));
+
+                    ProductListView.Items.Clear();
+                    SelectProducts();
+                }
             }
             catch (Exception er)
             {

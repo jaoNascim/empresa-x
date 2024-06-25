@@ -83,6 +83,8 @@
             CreateProductName = new System.Windows.Forms.TextBox();
             label15 = new System.Windows.Forms.Label();
             tabPage7 = new System.Windows.Forms.TabPage();
+            UpdateProductPrice = new System.Windows.Forms.NumericUpDown();
+            UpdateProductQuantity = new System.Windows.Forms.NumericUpDown();
             label16 = new System.Windows.Forms.Label();
             UpdateProductButton = new System.Windows.Forms.Button();
             label17 = new System.Windows.Forms.Label();
@@ -127,8 +129,6 @@
             DeleteSaleButton = new System.Windows.Forms.Button();
             label32 = new System.Windows.Forms.Label();
             label33 = new System.Windows.Forms.Label();
-            UpdateProductQuantity = new System.Windows.Forms.NumericUpDown();
-            UpdateProductPrice = new System.Windows.Forms.NumericUpDown();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl2.SuspendLayout();
@@ -141,6 +141,8 @@
             ((System.ComponentModel.ISupportInitialize)CreateProductPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CreateProductQuantity).BeginInit();
             tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)UpdateProductPrice).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)UpdateProductQuantity).BeginInit();
             tabPage8.SuspendLayout();
             tabPage9.SuspendLayout();
             tabControl4.SuspendLayout();
@@ -149,8 +151,6 @@
             tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UpdateSaleQuantity).BeginInit();
             tabPage12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)UpdateProductQuantity).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)UpdateProductPrice).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -448,24 +448,20 @@
             // 
             // CustomerName
             // 
-            CustomerName.DisplayIndex = 4;
             CustomerName.Text = "Name";
             // 
             // Address
             // 
-            Address.DisplayIndex = 1;
             Address.Text = "Address";
             Address.Width = 250;
             // 
             // Phone
             // 
-            Phone.DisplayIndex = 2;
             Phone.Text = "Phone";
             Phone.Width = 80;
             // 
             // Email
             // 
-            Email.DisplayIndex = 3;
             Email.Text = "Email";
             Email.Width = 100;
             // 
@@ -649,6 +645,20 @@
             tabPage7.TabIndex = 1;
             tabPage7.Text = "Update";
             tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // UpdateProductPrice
+            // 
+            UpdateProductPrice.Location = new System.Drawing.Point(7, 188);
+            UpdateProductPrice.Name = "UpdateProductPrice";
+            UpdateProductPrice.Size = new System.Drawing.Size(256, 23);
+            UpdateProductPrice.TabIndex = 30;
+            // 
+            // UpdateProductQuantity
+            // 
+            UpdateProductQuantity.Location = new System.Drawing.Point(7, 242);
+            UpdateProductQuantity.Name = "UpdateProductQuantity";
+            UpdateProductQuantity.Size = new System.Drawing.Size(256, 23);
+            UpdateProductQuantity.TabIndex = 29;
             // 
             // label16
             // 
@@ -1049,20 +1059,6 @@
             label33.TabIndex = 6;
             label33.Text = "SALE ACTIONS";
             // 
-            // UpdateProductQuantity
-            // 
-            UpdateProductQuantity.Location = new System.Drawing.Point(7, 242);
-            UpdateProductQuantity.Name = "UpdateProductQuantity";
-            UpdateProductQuantity.Size = new System.Drawing.Size(256, 23);
-            UpdateProductQuantity.TabIndex = 29;
-            // 
-            // UpdateProductPrice
-            // 
-            UpdateProductPrice.Location = new System.Drawing.Point(7, 188);
-            UpdateProductPrice.Name = "UpdateProductPrice";
-            UpdateProductPrice.Size = new System.Drawing.Size(256, 23);
-            UpdateProductPrice.TabIndex = 30;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1090,6 +1086,8 @@
             ((System.ComponentModel.ISupportInitialize)CreateProductQuantity).EndInit();
             tabPage7.ResumeLayout(false);
             tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)UpdateProductPrice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)UpdateProductQuantity).EndInit();
             tabPage8.ResumeLayout(false);
             tabPage8.PerformLayout();
             tabPage9.ResumeLayout(false);
@@ -1103,8 +1101,6 @@
             ((System.ComponentModel.ISupportInitialize)UpdateSaleQuantity).EndInit();
             tabPage12.ResumeLayout(false);
             tabPage12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)UpdateProductQuantity).EndInit();
-            ((System.ComponentModel.ISupportInitialize)UpdateProductPrice).EndInit();
             ResumeLayout(false);
         }
 

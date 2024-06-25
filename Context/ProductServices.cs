@@ -1,9 +1,6 @@
 ﻿using empresa_x.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace empresa_x.Context
 {
@@ -16,13 +13,21 @@ namespace empresa_x.Context
             return _context.Products.ToList();
         }
 
-        public void Create(Product product)
+        public Product SelectById(int id)
+        {
+            var result = _context.Products.SingleOrDefault(x => x.id == id);
+            return result;
+        }
+
+        public Product Create(Product product)
         {
             _context.Products.Add(product);
             _context.SaveChanges();
+
+            return product;
         }
 
-        public void Update(int id, string name, string description, decimal price, decimal qty)
+        public Product Update(int id, string name, string description, decimal price, decimal qty)
         {
             var result = _context.Products.SingleOrDefault(c => c.id == id);
 
@@ -35,6 +40,8 @@ namespace empresa_x.Context
 
                 _context.SaveChanges();
             }
+
+            return result;
         }
 
         public void Delete(int id)
